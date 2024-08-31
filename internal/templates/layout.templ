@@ -5,6 +5,17 @@ import (
 	"github.com/bayraktugrul/htmx-go-demo/internal/middleware"
 )
 
+templ Layout(contents templ.Component, title string) {
+	@header(title)
+	<body class="flex flex-col h-full">
+		@nav()
+		<main class="flex-1 container ">
+			@contents
+		</main>
+		@footer()
+	</body>
+}
+
 templ header(title string) {
 	<head>
 		<title>{ title }</title>
@@ -39,13 +50,3 @@ templ nav() {
 	</nav>
 }
 
-templ Layout(contents templ.Component, title string) {
-	@header(title)
-	<body class="flex flex-col h-full">
-		@nav()
-		<main class="flex-1 container ">
-			@contents
-		</main>
-		@footer()
-	</body>
-}

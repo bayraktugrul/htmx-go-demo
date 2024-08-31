@@ -32,7 +32,7 @@ func main() {
 			m.CSPMiddleware,
 		)
 		r.NotFound(handlers.NewNotFoundHandler().ServeHTTP)
-		r.Get("/", handlers.NewAboutHandler().ServeHTTP)
+		r.Get("/", handlers.NewHomePageHandler().ServeHTTP)
 		r.Get("/about", handlers.NewAboutHandler().ServeHTTP)
 	})
 
