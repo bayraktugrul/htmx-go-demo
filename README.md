@@ -36,7 +36,7 @@ mv tailwindcss-macos-x64 tailwindcss
 #### For Apple Silicon (arm64)
 
 ```sh
-curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-x64
-chmod +x tailwindcss-macos-x64
-mv tailwindcss-macos-x64 tailwindcss
+curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
+chmod +x tailwindcss-macos-arm64
+mv tailwindcss-macos-arm64 tailwindcss
 ```
