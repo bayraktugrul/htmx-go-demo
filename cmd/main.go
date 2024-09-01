@@ -34,6 +34,7 @@ func main() {
 		r.NotFound(handlers.NewNotFoundHandler().ServeHTTP)
 		r.Get("/", handlers.NewHomePageHandler().ServeHTTP)
 		r.Get("/about", handlers.NewAboutHandler().ServeHTTP)
+		r.Get("/time", handlers.NewTimeHandler().ServeHTTP)
 	})
 
 	killSig := make(chan os.Signal, 1)
