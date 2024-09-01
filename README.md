@@ -40,3 +40,7 @@ curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/t
 chmod +x tailwindcss-macos-arm64
 mv tailwindcss-macos-arm64 tailwindcss
 ```
+
+<br/>
+
+![](https://github.com/bayraktugrul/htmx-go-demo/blob/main/htmx.gif)
