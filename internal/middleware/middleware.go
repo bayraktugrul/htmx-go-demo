@@ -20,15 +20,6 @@ type Nonces struct {
 	HtmxCSSHash     string
 }
 
-func generateRandomString(length int) string {
-	bytes := make([]byte, length)
-	_, err := rand.Read(bytes)
-	if err != nil {
-		return ""
-	}
-	return hex.EncodeToString(bytes)
-}
-
 func CSPMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		nonceSet := Nonces{
@@ -81,4 +72,13 @@ func GetResponseTargetsNonce(ctx context.Context) string {
 func GetTwNonce(ctx context.Context) string {
 	nonceSet := GetNonces(ctx)
 	return nonceSet.Tw
+}
+
+func generateRandomString(length int) string {
+	bytes := make([]byte, length)
+	_, err := rand.Read(bytes)
+	if err != nil {
+		return ""
+	}
+	return hex.EncodeToString(bytes)
 }

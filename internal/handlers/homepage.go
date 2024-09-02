@@ -1,8 +1,9 @@
 package handlers
 
 import (
-	"github.com/bayraktugrul/htmx-go-demo/internal/templates"
 	"net/http"
+
+	"github.com/bayraktugrul/htmx-go-demo/internal/templates"
 )
 
 type HomePageHandler struct{}

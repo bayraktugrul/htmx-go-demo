@@ -1,9 +1,10 @@
 package handlers
 
 import (
-	"github.com/bayraktugrul/htmx-go-demo/internal/templates"
 	"net/http"
 	"time"
+
+	"github.com/bayraktugrul/htmx-go-demo/internal/templates"
 )
 
 type TimeHandLer struct{}

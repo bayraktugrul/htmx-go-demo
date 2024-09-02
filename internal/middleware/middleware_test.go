@@ -9,7 +9,6 @@ import (
 )
 
 func TestCSPMiddleware(t *testing.T) {
-
 	testCases := []struct {
 		name string
 	}{
@@ -19,9 +18,7 @@ func TestCSPMiddleware(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-
 		t.Run(tc.name, func(t *testing.T) {
-
 			assert := assert.New(t)
 
 			next := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -40,7 +37,6 @@ func TestCSPMiddleware(t *testing.T) {
 
 				assert.Equal(nonces.ResponseTargets, responseTargetsNonce)
 				assert.Len(responseTargetsNonce, 32)
-
 			})
 
 			middleware := CSPMiddleware(next)
@@ -53,8 +49,6 @@ func TestCSPMiddleware(t *testing.T) {
 			csp := recorder.Header().Get("Content-Security-Policy")
 
 			assert.NotEmpty(csp)
-
 		})
 	}
-
 }

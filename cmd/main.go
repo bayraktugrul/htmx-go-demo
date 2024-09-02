@@ -3,17 +3,18 @@ package main
 import (
 	"context"
 	"errors"
-	"github.com/bayraktugrul/htmx-go-demo/internal/config"
-	"github.com/bayraktugrul/htmx-go-demo/internal/handlers"
-	m "github.com/bayraktugrul/htmx-go-demo/internal/middleware"
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
 	"log/slog"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/bayraktugrul/htmx-go-demo/internal/config"
+	"github.com/bayraktugrul/htmx-go-demo/internal/handlers"
+	m "github.com/bayraktugrul/htmx-go-demo/internal/middleware"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func main() {
@@ -41,8 +42,9 @@ func main() {
 	signal.Notify(killSig, os.Interrupt, syscall.SIGTERM)
 
 	srv := &http.Server{
-		Addr:    cfg.Port,
-		Handler: r,
+		Addr:        cfg.Port,
+		Handler:     r,
+		ReadTimeout: 10 * time.Second,
 	}
 
 	go func() {
@@ -60,12 +62,11 @@ func main() {
 
 	logger.Info("Shutting down server")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
 
 	if err := srv.Shutdown(ctx); err != nil {
 		logger.Error("Server shutdown failed", slog.Any("err", err))
 		os.Exit(1)
 	}
-
 	logger.Info("Server shutdown complete")
+	cancel()
 }
