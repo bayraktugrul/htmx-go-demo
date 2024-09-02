@@ -42,4 +42,4 @@ mv tailwindcss-macos-arm64 tailwindcss
 ```
 
 <br/>
-<img src="https://github.com/bayraktugrul/htmx-go-demo/blob/main/htmx.gif" width="300" />
+<img src="https://github.com/bayraktugrul/htmx-go-demo/blob/main/htmx.gif" width="500" />
