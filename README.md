@@ -41,5 +41,27 @@ chmod +x tailwindcss-macos-arm64
 mv tailwindcss-macos-arm64 tailwindcss
 ```
 
-<br/>
+## Run
+
+#### Generate Templ
+```sh
+make templ-generate
+```
+
+#### Rebuild Tailwind
+```sh
+make tailwind-build
+```
+
+#### Run in Dev
+```sh
+make dev
+```
+
+#### Build
+```sh
+make build
+```
+
+#### Gif:
 <img src="https://github.com/bayraktugrul/htmx-go-demo/blob/main/htmx.gif" width="500" />
